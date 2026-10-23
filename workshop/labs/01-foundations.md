@@ -19,7 +19,7 @@ Create a directory and save this as `Containerfile`:
 ```Dockerfile
 FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 RUN microdnf install -y nginx && microdnf clean all
-RUN printf 'Hello from the workshop container\\n' > /usr/share/nginx/html/index.html
+RUN printf 'Hello from the workshop container\n' > /usr/share/nginx/html/index.html
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
 ```
@@ -109,10 +109,18 @@ spec:
           volumeMounts:
             - name: content
               mountPath: /usr/share/nginx/html
+        - name: heartbeat
+          image: busybox:1.36
+          command: ["sh", "-c", "while true; do date >> /shared/heartbeat.log; sleep 30; done"]
+          volumeMounts:
+            - name: shared
+              mountPath: /shared
       volumes:
         - name: content
           configMap:
             name: web-content
+        - name: shared
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service

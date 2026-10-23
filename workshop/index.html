@@ -1,67 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A two-day hands-on workshop from container basics to a functional KubeVirt virtual machine.">
-<meta name="theme-color" content="#17191c">
-<title>Unified Workload Migration with KubeVirt | Open-Industries × OpenDemoDays</title>
-<style>
-:root{--ink:#17191c;--muted:#56606a;--red:#c90016;--green:#168b68;--line:#e4e7eb;--wash:#f5f6f8}
-*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
-.brandbar{display:flex;align-items:center;justify-content:center;gap:20px;border-bottom:1px solid var(--line);padding:16px 0}
-.brandbar img{display:block;object-fit:contain}.oi{width:52px;height:52px}.odd{width:84px;height:84px}.brandbar span{color:var(--muted);font-size:.9rem}
-.hero{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:18px;padding:45px 0}.eyebrow{color:var(--red);font-size:.78rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
-h1{font-size:clamp(2.5rem,5.4vw,4.5rem);line-height:1.03;letter-spacing:-.045em;margin:.45rem 0 1rem}.lede{max-width:580px;color:#424a52;font-size:1.13rem}.hero-art{width:100%;height:auto}
-.chips,.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.chip{border:1px solid var(--line);background:var(--wash);border-radius:999px;padding:5px 11px;font-size:.84rem}
-.btn{display:inline-block;text-decoration:none;border-radius:6px;background:var(--red);color:white;padding:10px 15px;font-weight:750}.btn.alt{background:white;color:var(--ink);border:1px solid #aab1b8}
-section{padding:34px 0}h2{margin:0 0 5px;font-size:clamp(1.55rem,3vw,2.1rem);letter-spacing:-.025em}.intro{color:var(--muted);margin:0 0 20px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card{border:1px solid var(--line);border-radius:11px;padding:17px;background:white}.card b{color:var(--red);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}.card h3{font-size:1.05rem;line-height:1.3;margin:6px 0}.card p{font-size:.9rem;color:var(--muted);margin:0}.time{display:block;font-size:.82rem;font-weight:700;margin-top:10px}
-.schedule{background:var(--wash);border-block:1px solid var(--line)}.days{display:grid;grid-template-columns:1fr 1fr;gap:16px}.day{background:#fff;border:1px solid var(--line);border-radius:11px;padding:18px}.day h3{margin:0 0 6px}.day ul{margin:0;padding-left:20px;color:#424a52}
-.capstone{background:var(--ink);color:white;border-radius:14px;padding:26px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px}.capstone h2{color:white}.capstone p{color:#d1d5d9}.capstone .btn.alt{background:transparent;color:white;border-color:#777}.capstone-art{width:100%;height:auto}
-.readiness{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.req{background:var(--wash);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:9px 11px;font-size:.9rem;color:#424a52}
-footer{border-top:1px solid var(--line);margin-top:25px;padding:20px 0 38px;color:var(--muted);font-size:.9rem}
-@media(max-width:800px){.hero{grid-template-columns:1fr;padding:30px 0}.hero-art{max-width:680px;margin:auto}.cards{grid-template-columns:repeat(2,1fr)}.readiness{grid-template-columns:repeat(2,1fr)}.capstone{grid-template-columns:1fr}.capstone-art{max-width:620px;margin:auto}}
-@media(max-width:520px){.brandbar{gap:10px}.oi{width:42px;height:42px}.odd{width:65px;height:65px}.brandbar span{font-size:.75rem}.cards,.days,.readiness{grid-template-columns:1fr}.wrap{width:calc(100% - 28px)}}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Workshop guiado de Kubernetes y KubeVirt con laboratorios paso a paso y despliegue de una VM Linux funcional.">
+<title>KubeVirt Workshop | Open-Industries × OpenDemoDays</title>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<header class="wrap">
-<div class="brandbar" aria-label="Open-Industries in collaboration with OpenDemoDays">
-<a href="https://github.com/Open-Industries" aria-label="Open-Industries on GitHub"><img class="oi" src="assets/open-industries-logo.png" alt="Open-Industries logo"></a>
-<span>in collaboration with</span><img class="odd" src="assets/opendemo-days-badge.png" alt="OpenDemoDays badge">
-</div>
-<div class="hero">
-<div><div class="eyebrow">Two-day hands-on workshop</div>
-<h1>Unified Workload Migration with KubeVirt</h1>
-<p class="lede">Start with containers and Kubernetes, then build, operate, and validate a persistent Linux virtual machine running a real web service.</p>
-<div class="chips"><span class="chip">Linux basics</span><span class="chip">Guided labs</span><span class="chip">KubeVirt</span><span class="chip">Functional VM</span></div>
-<div class="actions"><a class="btn" href="labs/01-foundations.md">Start with Lab 1</a><a class="btn alt" href="prerequisites.md">Check prerequisites</a></div></div>
-<img class="hero-art" src="assets/kubevirt-cluster-hero.png" alt="Kubernetes worker nodes hosting container pods, a Linux virtual machine, and persistent storage">
-</div>
-</header>
-<main>
-<section class="wrap" id="modules"><h2>Workshop modules</h2><p class="intro">Each module combines concise explanations, instructor demos, and hands-on checkpoints.</p>
-<div class="cards">
-<article class="card"><b>Module 01</b><h3>Container fundamentals</h3><p>Container vs VM, OCI images, layers, registries, runtimes, and image lifecycle.</p><span class="time">90–120 min</span></article>
-<article class="card"><b>Module 02</b><h3>Kubernetes fundamentals</h3><p>Control plane, workers, Pods, Deployments, Services, ConfigMaps, Secrets, and YAML.</p><span class="time">120–150 min</span></article>
-<article class="card"><b>Module 03</b><h3>Kubernetes networking</h3><p>Pod networking, CNI, Service types, ingress, Routes, and NetworkPolicy.</p><span class="time">90–120 min</span></article>
-<article class="card"><b>Module 04</b><h3>Kubernetes storage</h3><p>PV, PVC, StorageClasses, dynamic provisioning, access modes, and persistence.</p><span class="time">90 min</span></article>
-<article class="card"><b>Module 05</b><h3>KubeVirt concepts</h3><p>virt-api, virt-controller, virt-handler, VM and VMI objects, CDI, network, and disk.</p><span class="time">90 min</span></article>
-<article class="card"><b>Module 06</b><h3>Deploy and manage VMs</h3><p>Readiness, operator path, image import, VM lifecycle, console, and migration basics.</p><span class="time">120–150 min</span></article>
-<article class="card"><b>Module 07</b><h3>Operations and next steps</h3><p>Monitoring, resources, troubleshooting, security, GitOps, and advanced topics.</p><span class="time">60–90 min</span></article>
-<article class="card"><b>Capstone</b><h3>Deploy a functional VM</h3><p>Boot from an imported disk, serve a web page from the guest, and verify connectivity.</p><span class="time">90–120 min</span></article>
-</div></section>
-<section class="schedule"><div class="wrap"><h2>Suggested two-day flow</h2><p class="intro">Prepare the cluster in advance so lab time stays focused on workloads.</p>
-<div class="days"><article class="day"><h3>Day 1 · Containers and Kubernetes</h3><ul><li>Build and run a container image</li><li>Deploy and expose an application</li><li>Test Service discovery and network policy</li><li>Verify data persistence after Pod replacement</li></ul></article>
-<article class="day"><h3>Day 2 · Virtual machines on Kubernetes</h3><ul><li>KubeVirt architecture and readiness</li><li>OpenShift Virtualization or upstream KubeVirt path</li><li>VM lifecycle and operational practices</li><li>Functional VM capstone and troubleshooting</li></ul></article></div></div></section>
-<section class="wrap"><div class="capstone"><div><div class="eyebrow">Final hands-on exercise</div><h2>Boot it. Serve it. Prove it.</h2>
-<p>Use CDI to import a cloud-init-ready qcow2 image. Start a VM with persistent storage, install and run Apache httpd inside the guest, then reach the page through a Kubernetes Service.</p>
-<div class="actions"><a class="btn" href="labs/04-capstone-functional-vm.md">Open capstone lab</a><a class="btn alt" href="manifests/capstone-functional-vm.yaml">View VM manifest</a></div></div>
-<img class="capstone-art" src="assets/kubevirt-cluster-hero.png" alt=""></div></section>
-<section class="wrap"><h2>Prepare the lab environment</h2><p class="intro">The cluster and virtualization operator should be installed and validated before the workshop.</p>
-<div class="readiness"><div class="req">KubeVirt or OpenShift Virtualization healthy</div><div class="req">CDI available for disk import</div><div class="req">Virtualization-capable workers</div><div class="req">StorageClass and image URL ready</div></div>
-<div class="actions"><a class="btn alt" href="prerequisites.md">Full readiness checklist</a><a class="btn alt" href="README.md">Workshop material index</a></div></section>
-</main>
-<footer><div class="wrap">Open-Industries in collaboration with OpenDemoDays · <a href="https://github.com/psehgaft/UnifiedWorkloadMigration-Kubevirt">Workshop repository</a> · <a href="https://kubevirt.io/user-guide/">KubeVirt user guide</a></div></footer>
+<a class="skip" href="#content">Saltar al contenido</a>
+<header class="topbar"><button id="menu-toggle" aria-label="Abrir índice">☰</button><a class="brand" href="index.html"><img src="assets/open-industries-logo.png" alt=""><span class="brand-title">Open Demo Platform<small>OPEN-INDUSTRIES × OPENDEMODAYS</small></span></a><div class="top-title" id="page-title">Unified Workload Migration con KubeVirt</div><nav class="top-actions" aria-label="Navegación principal"><a href="presentacion.html">Presentación</a><a href="README.md">Material</a><a class="repo-link" href="https://github.com/psehgaft/UnifiedWorkloadMigration-Kubevirt">Repositorio</a></nav></header>
+<aside id="sidebar"><p class="nav-title">UNIFIED WORKLOAD MIGRATION<br>CON KUBEVIRT</p><p class="version">Workshop · Open-Industries</p><label for="nav-search">Buscar en el workshop</label><input id="nav-search" type="search" placeholder="Buscar…" autocomplete="off"><nav id="step-nav" aria-label="Secciones del workshop"></nav></aside>
+<div class="workspace"><div class="toolbar"><span>Workshop</span> / <span id="breadcrumb">Inicio</span></div><div class="content-layout"><main id="content"><article id="article"></article></main><aside class="toc" id="toc" aria-label="Contenido de esta página"></aside></div><footer>Open-Industries en colaboración con OpenDemoDays · <a href="https://github.com/psehgaft/UnifiedWorkloadMigration-Kubevirt">Repositorio del workshop</a> · <a href="https://kubevirt.io/user-guide/">Guía de KubeVirt</a></footer></div>
+<script src="site.js"></script>
 </body></html>

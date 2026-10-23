@@ -137,7 +137,7 @@ kubectl -n workshop-basics get pods,svc
 kubectl -n workshop-basics port-forward service/web 8080:8080
 ```
 
-In a second terminal, run `curl http://localhost:8080`. Despite the filename, this starter Pod has one container; add a sidecar (for example, a log follower) as an optional exercise to make it multi-container.
+In a second terminal, run `curl http://localhost:8080`. Inspect both containers with `kubectl -n workshop-basics get pod` and `kubectl -n workshop-basics exec deploy/web -c heartbeat -- tail /shared/heartbeat.log`. The heartbeat sidecar writes to a shared `emptyDir` volume; the ConfigMap provides the web page.
 
 **Checkpoint:** Change the ConfigMap and observe how the mounted file changes. Scale the Deployment to two replicas. Explain why a Service provides a stable endpoint when Pod IPs change.
 

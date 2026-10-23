@@ -1,5 +1,9 @@
 # Workshop plan
 
+<p align="center"><img src="assets/open-industries-logo.png" alt="Open-Industries logo" width="96"> &nbsp; in collaboration with &nbsp; <img src="assets/opendemo-days-badge.png" alt="OpenDemoDays badge" width="120"></p>
+
+[View the visual workshop overview](index.html).
+
 ## Audience and delivery
 
 **Audience:** Developers, system administrators, and platform engineers with basic Linux and command-line knowledge.  
